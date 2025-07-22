@@ -1,4 +1,4 @@
-document.getElementById("send-button").addEventListener("click", async () => {
+const searchTitle = async () => {
   try {
     const search = document.getElementById("isearch").value;
     const idiom = document.getElementById("idiom").value;
@@ -25,13 +25,14 @@ document.getElementById("send-button").addEventListener("click", async () => {
 
     data.forEach((book) => {
       const a = document.createElement("a");
-      a.setAttribute(
-        "href",
-        `https://openlibrary.org/${book.key}`
-      );
+      a.setAttribute("href", `https://openlibrary.org/${book.key}`);
       a.innerHTML = `
                 <div class="book-info">
-                    <img src="${book.cover_i ? `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg` : "img-default.png"}" alt="Foto do livro">
+                    <img src="${
+                      book.cover_i
+                        ? `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
+                        : "img-default.png"
+                    }" alt="Foto do livro">
                     <div class="book-details">
                         <div>
                             <h2>${book.title}</h2>
@@ -58,9 +59,19 @@ document.getElementById("send-button").addEventListener("click", async () => {
   } catch (error) {
     console.error("Erro ao carregar os livros:", error);
   }
-});
+};
 
 document.getElementById("reset-button").addEventListener("click", () => {
   const finderTable = document.getElementById("finder-table");
   finderTable.innerHTML = "";
+});
+
+const searchButton = document.getElementById("send-button");
+const searchForm = document.getElementById("search-form");
+
+searchButton.addEventListener("click", searchTitle);
+searchForm.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    searchTitle();
+  }
 });

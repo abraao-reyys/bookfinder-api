@@ -99,6 +99,10 @@ main {
           color: #0a0f1a;
           filter: opacity(70%);
         }
+
+        select {
+          cursor: pointer;
+        }
       }
 
       button {
@@ -173,6 +177,16 @@ main {
     img {
       height: 6.4rem;
       width: 6.4rem;
+    }
+
+    .alert-message {
+      width: 100%;
+
+      color: #0a0f1a;
+      text-align: center;
+      font-size: 1.2rem;
+
+      filter: opacity(70%);
     }
   }
 
