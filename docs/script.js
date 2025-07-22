@@ -5,7 +5,7 @@ document.getElementById("send-button").addEventListener("click", async () => {
     const available = document.getElementById("iavailable").value;
     const year = document.getElementById("iyear").value;
 
-    const response = await fetch("http://localhost:3000", {
+    const response = await fetch("https://bookfinder-api-b784.onrender.com", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
